@@ -25,7 +25,7 @@ COPIER=cat
 OS-IMAGE=deltaos-amd64.osi
 
 buildenv:
-
+ 
 .PHONY: build
 build: $(ASM_OBJS) $(CPP_OBJS) $(BOOT_SOURCES)
 	@echo "Assembling boot/boot1/boot1.asm..."
@@ -56,3 +56,4 @@ clean:
 	rm -rf $(CPP_OBJS)
 	rm -rf $(ASM_OBJS)
 	
+
