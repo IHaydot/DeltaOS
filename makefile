@@ -24,8 +24,17 @@ OBJCOPY_FLAGS=--format binary
 COPIER=cat
 OS-IMAGE=deltaos-amd64.osi
 
+.PHONY: buildenv
 buildenv:
- 
+	mkdir boot/ ; mkdir boot/boot1/ ; mkdir boot/boot2
+	mkdir kernel/
+	mkdir target/
+	mkdir build/
+	cd boot/boot1 ; wget https://raw.githubusercontent.com/IHaydot/DeltaOSres/master/boot/boot1/boot1.asm 
+	cd boot/boot2 ; wget https://raw.githubusercontent.com/IHaydot/DeltaOSres/master/boot/boot2/boot2.asm
+	cd target/ ; wget https://raw.githubusercontent.com/IHaydot/DeltaOSres/master/target/linker.ld
+	cd kernel/ ; wget https://raw.githubusercontent.com/IHaydot/DeltaOSres/master/kernel/kernel.cpp
+
 .PHONY: build
 build: $(ASM_OBJS) $(CPP_OBJS) $(BOOT_SOURCES)
 	@echo "Assembling boot/boot1/boot1.asm..."
@@ -56,4 +65,5 @@ clean:
 	rm -rf $(CPP_OBJS)
 	rm -rf $(ASM_OBJS)
 	
+
 
