@@ -1,2 +1,6 @@
-makefile
-buildenv/
+*.o
+*.oa
+*.tmp
+*.bin
+target/no
+makefile.git
